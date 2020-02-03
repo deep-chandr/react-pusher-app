@@ -2,7 +2,7 @@ const Pusher = require('pusher');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const path = require('path');
 
 const app = express();
 
@@ -10,6 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 var pusher = new Pusher({
   appId: '515289',
@@ -20,7 +21,7 @@ var pusher = new Pusher({
 });
 
 
-app.set('PORT', process.env.PORT || 5000);
+app.set('PORT', 80 );
 
 
 app.post('/message', (req, res) => {
@@ -36,6 +37,10 @@ app.post('/usercount', (req, res) => {
   res.send(usercount);
 });
 
+
+app.get('/' , function(req, res, next) {
+  res.sendFile('index.html');
+})
 app.listen(app.get('PORT'), () => 
   console.log('Listening at ' + app.get('PORT')))
 
