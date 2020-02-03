@@ -39,7 +39,7 @@ app.post('/usercount', (req, res) => {
 
 
 app.get('/' , function(req, res, next) {
-  res.sendFile('index1.html');
+  res.sendFile('index.html');
 })
 app.listen(app.get('PORT'), () => 
   console.log('Listening at ' + app.get('PORT')))
