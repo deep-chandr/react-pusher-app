@@ -46,7 +46,7 @@ class ChatBackend extends Component{
         avatarName: this.props.avatarName,
         message: this.props.text
       };
-      axios.post('http://localhost:5000/message', payload);
+      axios.post('/message', payload);
     } else {
 /*    	if message is typed.*/
       this.props.onTextChange(e.target.value);
@@ -57,7 +57,7 @@ class ChatBackend extends Component{
 		avatarName: this.props.avatarName,
 		message: this.props.text
 	};
-	axios.post('http://localhost:5000/message', payload);
+	axios.post('/message', payload);
   }
   handleModalClose = e =>{
   	if (e.key === 'Enter') {
