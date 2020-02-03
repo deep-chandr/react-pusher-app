@@ -46,7 +46,7 @@ class ChatBackend extends Component{
         avatarName: this.props.avatarName,
         message: this.props.text
       };
-      axios.post('/message', payload);
+      axios.post('http://ec2-3-84-17-151.compute-1.amazonaws.com/message', payload);
     } else {
 /*    	if message is typed.*/
       this.props.onTextChange(e.target.value);
@@ -57,7 +57,7 @@ class ChatBackend extends Component{
 		avatarName: this.props.avatarName,
 		message: this.props.text
 	};
-	axios.post('/message', payload);
+	axios.post('http://ec2-3-84-17-151.compute-1.amazonaws.com/message', payload);
   }
   handleModalClose = e =>{
   	if (e.key === 'Enter') {

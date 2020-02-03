@@ -13,7 +13,7 @@ const initialState = {
 const reducers = (state = initialState, action) => {
 	switch(action.type){
 		case actionTypes.ON_MODAL_CLOSED: 
-				axios.post('/usercount', {username: state.avatarName });
+				axios.post('http://ec2-3-84-17-151.compute-1.amazonaws.com/usercount', {username: state.avatarName });
 				return {
 					...state,
 					isProfileInfoEntered: false
